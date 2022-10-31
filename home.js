@@ -22,12 +22,14 @@
 */
 
 //CODE HERE
+// const greetUser = (username) => {
+//     console.log(`Welcome back, ${username}`)
+// }
+// greetUser(`Ben`)
 const greetUser = (username) => {
-    console.log(`Welcome back, ${username}`)
+return `Welcome back, ${username}`
 }
-greetUser(`Ben`)
-
-
+console.log(greetUser('Ben'))
 //////////////////PROBLEM 2////////////////////
 /* 
     Below is an array of zip codes that are in
@@ -51,16 +53,26 @@ greetUser(`Ben`)
 const deliveryAreaZipCodes = [85205, 85204, 85203, 85213, 85206]
 
 //CODE HERE
-function canWeDeliver(zipcode){
-for(let i = 0; i < zipcode.length; i++){
-if(zipcode[i]){
-    console.log(`You're in our delivery zone!`)
- }else{
-    console.log(`Sorry, we can't deliver to that address`)
+const canWeDeliver = (zipcode) => {
+    for(let i = 0; i < deliveryAreaZipCodes.length; i++){
+        if(deliveryAreaZipCodes[i] === zipcode){
+            return `You're in our delivery zone!`
+        } 
     }
+    return `Sorry, we can't deliver to that address`
 }
-}
-let zipcode = canWeDeliver(85205)
+console.log(canWeDeliver(85205))
+console.log(canWeDeliver(85208))
+// function canWeDeliver(zipcode){
+// for(let i = 0; i < zipcode.length; i++){
+// if(zipcode[i]){
+//     console.log(`You're in our delivery zone!`)
+//  }else{
+//     console.log(`Sorry, we can't deliver to that address`)
+//     }
+// }
+// }
+// console,log(canWeDeliver(85205))
 
 /* 
     Problem 2 Continued
@@ -80,8 +92,11 @@ let zipcode = canWeDeliver(85205)
 */
 
 // CODE HERE
-let canWeDeliverTwo = 
-console.log(canWeDeliverTwo.includes())
+
+const canWeDeliverTwo = (zipcode) => deliveryAreaZipCodes.includes(zipcode)
+console.log(canWeDeliverTwo(85205))
+console.log(canWeDeliverTwo(85208))
+// console.log(canWeDeliverTwo.includes())
 
 //////////////////PROBLEM 3////////////////////
 /* 
@@ -117,6 +132,9 @@ const deals = [
 */
 
 //CODE HERE
+console.log(deals[0].title)
+const asdf = deals[0].title.replace(`15`, `10`)
+console.log(asdf)
 // const deal = title.replace(15, 10)
 // console.log(deals)
 
@@ -135,3 +153,6 @@ const deals = [
 */
 
 //CODE HERE
+console.log(deals[1])
+deals[1].desc = deals[1].desc.trim().replace(`March`, `April`)
+console.log(deals[1])

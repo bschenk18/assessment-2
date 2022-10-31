@@ -96,7 +96,46 @@ console.log(category)
 */
 
 //CODE HERE
-const foodArr = [`meat lover`, 15, `entree`, 10, 5, `pepperoni`]
+const foodArr = [
+{name: `pizza`,
+price: 12,
+category: `entree`,
+popularity: 10,
+rating: 5,
+tags: [`hawaiian`,`canadian bacon`, `kids`]
+},
+{ 
+name: `pasta`,
+price: 10,
+category: `entree`,
+popularity: 10,
+rating: 5,
+tags: [`tomato`, `pesto`, `alfredo`,`kids`]
+},
+{
+name: `salad`,
+price: 8,
+category: `side`,
+popularity: 7,
+rating: 4,
+tags: [`ceaser`, `ranch`, `blue cheese`]
+}, 
+{
+name: `cookie`,
+price: 2,
+category: `dessert`,
+popularity: 8,
+rating: 4,
+tags: [`chocalate chip`, `peanut butter`, `butter scotch`, `kids`]
+},
+{name: `breadsticks`,
+price: 7,
+category: `side`,
+popularity: 10,
+rating: 5,
+tags: [`garlic`, `cheese`, `kids`]
+}
+]
 
 
 //////////////////PROBLEM 4////////////////////
@@ -112,11 +151,8 @@ const foodArr = [`meat lover`, 15, `entree`, 10, 5, `pepperoni`]
 */
 
 //CODE HERE
-function filteredFood(tags){
-tags()
-}
-filteredFood(pizza)
-
+const filteredFood = foodArr.filter((food) => food.tags.includes(`kids`))
+console.log(filteredFood)
 //////////////////PROBLEM 5////////////////////
 /* 
     Now let's write a function that's a little
@@ -157,6 +193,18 @@ filteredFood(pizza)
 */
 
 //CODE HERE
+const filterByProperty = (property, number, type) => {
+    const foodFilter = foodArr.filter((food) => {
+        if(type === `above`){
+            return food[property] > number
+        }else{
+            return food[property] <= number
+        }
+    })
+    return foodFilter
+}
+
+
 // filterByProperty(`10`, `8`, above)
 
 
@@ -168,3 +216,4 @@ filteredFood(pizza)
 */
 
 //CODE HERE
+console.log(filterByProperty(`popularity`, 5, `above`))

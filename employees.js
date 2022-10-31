@@ -25,9 +25,13 @@ class Employee {
         this.name = name;
         this.shifts = shifts;
     }
+
+getSchedule(){
+    console.log(`${this.name} works on ${this.shifts}`)
 }
-let getSchedule = new Employee(`Ben`, `graveyard shifts`)
-console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
+}
+// let getSchedule = new Employee(`Ben`, `graveyard shifts`)
+// console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 
 /*
     Create a new instance of your class.
@@ -40,14 +44,14 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE
+const empOne = new Employee('Jess', `weekday mornings, weekday afternoons`)
 /*
     Call the `getSchedule` method on the
     `empOne` object.
 */
 
 //CODE HERE
-
-
+empOne.getSchedule()
 /*
     Make a copy of the empOne object
     using the spread operator.
@@ -61,7 +65,10 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE
+const empTwo = {...empOne}
 
+empTwo.name = `Nick`
+console.log(empTwo)
 
 
 //////////////////PROBLEM 2////////////////////
@@ -88,7 +95,19 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE
-
+class Manager extends Employee{
+    constructor(name, shifts, employees){
+        super(name, shifts)
+        this.employees = employees
+        
+        }
+        getEmployees(){
+            console.log(`${this.name} manages ${this.employees}`)
+        }
+        addEmployee(emp){
+            this.employees.push(emp)
+        }
+}
 
 
 /*
@@ -103,15 +122,15 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE
-
-
+const manager = new Manager(`Winston`, `weekday mornings and weekday afternoons`, [`Cece`, `Schmidt`])
+console.log(manager)
 /*
     Call the `getEmployees` method on the
     `manager` object.  
 */
 
 //CODE HERE
-
+manager.getEmployees()
 /*
     Call the `addEmployee` method on the 
     `manager` object passing in the string 
@@ -119,7 +138,7 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE 
-
+manager.addEmployee(`Coach`)
 /*
     Call the `getEmployees` method on the
     `manager` object again to confirm 
@@ -127,3 +146,4 @@ console.log(`${getSchedule.name} works on ${getSchedule.shifts}`)
 */
 
 //CODE HERE
+manager.getEmployees()

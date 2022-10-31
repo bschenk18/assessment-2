@@ -34,10 +34,10 @@ const cart = [
 ]
 
 //CODE HERE
-
-// const summedPrice = cart.reduce(/* CALLBACK HERE */)
-
-
+const summedPrice = cart.reduce((acc, curr) => {
+return acc + curr.price
+}, 0)
+console.log(summedPrice)
 //////////////////PROBLEM 2////////////////////
 /*  
     Write a function called `calcFinalPrice` that
@@ -52,11 +52,14 @@ const cart = [
     Note: the numbers passed in for `tax` will be
     decimals, for example: .06 for a 6% tax.
 */
-
 //CODE HERE
+const calcFinalPrice = (cartTotal, couponValue, tax) => {
+    const totalBeforeCoupon = cartTotal * (1 + tax)
+    const finalPrice = totalBeforeCoupon - couponValue
 
-
-
+    return finalPrice
+}
+console.log(calcFinalPrice(summedPrice, 5, .06))
 //////////////////PROBLEM 3////////////////////
 /*  
     In this problem, you'll create a model for 
@@ -88,3 +91,10 @@ const cart = [
 */
 
 //CODE HERE
+const firstCustomer = {
+    firstName: `Ben`,
+    lastName: `Prentiss`,
+    address: `123 Main St`,
+    city: `Lehi`,
+    phoneNumber: 2097776666
+}
